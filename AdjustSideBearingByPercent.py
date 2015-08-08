@@ -91,7 +91,7 @@ class ChangeSideBearingByPercentage( object ):
 			ActiveTSB  = self.w.TSB.get()
 			ActiveBSB  = self.w.BSB.get()
 
-			for layer in font.selectedLayers:
+			for layer in Glyphs.font.selectedLayers:
 				if all(bound != 0 for bound in [layer.bounds.size.width, layer.bounds.size.height]):
 					if any(Actived == True for Actived in [ActiveLSB, ActiveRSB, ActiveTSB, ActiveBSB]):
 						layer.parent.beginUndo()
