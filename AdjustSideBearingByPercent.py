@@ -70,6 +70,7 @@ class ChangeSideBearingByPercentage( object ):
 			Glyphs.defaults["com.nsilva.ChangeSideBearingByPercentage.BSB"]        = self.w.BSB.get()
 		except:
 			return False
+		return True
 
 	def LoadPreferences( self ):
 		try:
@@ -80,7 +81,7 @@ class ChangeSideBearingByPercentage( object ):
 			self.w.BSB.set(        Glyphs.defaults["com.nsilva.ChangeSideBearingByPercentage.BSB"] )
 		except:
 			return False	
-		#return True
+		return True
 	
 	def ChangeSideBearingByPercentageMain( self, sender ):
 		try:
@@ -119,10 +120,10 @@ class ChangeSideBearingByPercentage( object ):
 					if all(Actived == False for Actived in [ActiveLSB, ActiveRSB, ActiveTSB, ActiveBSB]):
 						print "You have not choosen sidebarings to modify"	
 				else:
-					print layer.parent.name, "\b:\nIt is a space character"
+					print "\n"+layer.parent.name+":\n", "It is a space character"
 
-			#if not self.SavePreferences( self ):
-			#	print "Note: 'Change Side Bearing by Percentage' could not write preferences."
+			if not self.SavePreferences( self ):
+				print "Note: 'Change Side Bearing by Percentage' could not write preferences."
 			
 			self.w.close() # delete if you want window to stay open
 		except Exception, e:
